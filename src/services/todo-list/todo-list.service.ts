@@ -10,8 +10,6 @@ export class TodoListService {
 
   async create(task: TaskDTO): Promise<Task> {
     const createdTodo = new this.todoModel(task);
-    console.log('add');
-    
     return createdTodo.save();
   }
 
@@ -31,12 +29,10 @@ export class TodoListService {
       task.isDeleted = true;
       return task.save();
     }
-    
     return null;
   }
 
   async updateTodo(task: Task): Promise<Task> {
-    // Find the todo item by id and update its properties
     return this.todoModel.findByIdAndUpdate(task._id, task, { new: true });
   }
 }

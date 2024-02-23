@@ -9,10 +9,6 @@ export class TodoListController {
 
   @Post('/add-task')
   async create(@Body() task: TaskDTO): Promise<Task> {
-    console.log(
-      task
-    );
-    
     return this.todoService.create(task);
   }
 
